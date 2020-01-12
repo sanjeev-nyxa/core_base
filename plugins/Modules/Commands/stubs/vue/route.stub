@@ -1,0 +1,30 @@
+import $MODEL_NAME$Table from './$MODEL_NAME$Table'
+import $MODEL_NAME$Form from './$MODEL_NAME$Form'
+
+export default [
+    {
+        name: '$MODEL_LOWER_NAME$.index',
+        path: '/$MODEL_LOWER_NAME$',
+        component: $MODEL_NAME$Table,
+        meta: {
+            requiresAuth: true,
+            menu: true,
+            permission: 'view_$MODEL_LOWER_NAME$'
+        },
+
+    },
+    {
+        name: '$MODEL_LOWER_NAME$.create',
+        path: '/$MODEL_LOWER_NAME$/create',
+        component: $MODEL_NAME$Form,
+        meta: {requiresAuth: true, permission: 'create_$MODEL_LOWER_NAME$'},
+    },
+    {
+        name: '$MODEL_LOWER_NAME$.edit',
+        path: '/$MODEL_LOWER_NAME$/:$MODEL$/edit',
+        component: $MODEL_NAME$Form,
+        meta: {requiresAuth: true, permission: 'update_$MODEL_LOWER_NAME$'},
+    },
+
+
+]

@@ -1,0 +1,77 @@
+<?php
+
+namespace $CLASS_NAMESPACE$;
+
+use Labs\Core\Http\Controllers\Controller;
+use Labs\$MODULE$\Entities;
+use Labs\$MODULE$\Http\Resource\$API$\$MODEL$Resource;
+use Labs\$MODULE$\Http\Requests\$API$\$MODEL$ as $MODEL$Requests;
+
+/**
+ * Class $CLASS$
+ * @property Entities\$MODEL$ model
+ * @package Zix\PluginName\Http\Controllers/$API$
+ */
+class $CLASS$ extends Controller
+{
+        /**
+         * $CLASS$ constructor.
+         * @param Entities\$MODEL$ $model
+         */
+        public function __construct(Entities\$MODEL$ $model)
+        {
+            $this->model = $model;
+        }
+
+        /**
+        * @SWG\Get(
+        *     path="/$MODEL_PLURAL_LOWER_NAME$",
+        *     tags={"$MODULE$ $MODEL_PLURAL_NAME$"},
+        *     summary="Get $MODEL$ List",
+        *     @SWG\Response(
+        *          response=200,
+        *          description="ORACLE Fluent Query Response.",
+        *     ),
+        * ),
+        * @param $MODEL$Requests\$MODEL$ShowRequest $request
+        * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+        */
+        public function index($MODEL$Requests\$MODEL$ShowRequest $request)
+        {
+            return $MODEL$Resource::collection($this->model->all());
+        }
+
+        /**
+        * @SWG\Get(
+        *     path="/$MODEL_PLURAL_LOWER_NAME$/{$MODEL_LOWER_NAME$}",
+        *     tags={"$MODULE$ $MODEL_PLURAL_NAME$"},
+        *     summary="Get $MODEL$",
+        *     @SWG\Parameter(
+        *          name="$MODEL_LOWER_NAME$",
+        *          in="path",
+        *          description="UUID",
+        *          required=true,
+        *          type="string"
+        *     ),
+        *     @SWG\Parameter(
+        *          name="$MODEL_LOWER_NAME$",
+        *          in="body",
+        *          required=true,
+        *          type="string",
+        *          schema={"$ref": "#/definitions/$MODULE$@$MODEL$ShowRequest"},
+        *     ),
+        *     @SWG\Response(
+        *          response=200,
+        *          description="$MODEL$Resource.",
+        *     ),
+        * ),
+        * @param $MODEL$Requests\$MODEL$ShowRequest $request
+        * @param Entities\$MODEL$ $$MODEL_LOWER_NAME$
+        * @return $MODEL$Resource
+        */
+        public function show($MODEL$Requests\$MODEL$ShowRequest $request, Entities\$MODEL$ $$MODEL_LOWER_NAME$)
+        {
+            return new $MODEL$Resource($$MODEL_LOWER_NAME$);
+        }
+
+}

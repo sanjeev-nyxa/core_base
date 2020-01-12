@@ -1,0 +1,17 @@
+{
+    "name": "Backup",
+    "alias": "backup",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 4,
+    "providers": [
+        "Labs\\Backup\\Providers\\BackupServiceProvider",
+        "Labs\\Backup\\Providers\\EventServiceProvider"
+    ],
+    "aliases": {},
+    "files": [
+        "start.php"
+    ],
+    "requires": []
+}

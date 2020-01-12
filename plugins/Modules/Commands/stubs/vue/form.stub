@@ -1,0 +1,79 @@
+<template>
+    <form @submit.prevent="save()">
+        <v-card class="mb-3">
+            <v-card-text>
+                $FORM_FIELDS$
+            </v-card-text>
+        </v-card>
+
+        <v-btn color="primary" :loading="$store.state.fetching" type="submit">
+            {{ edit ? $t('form.edit') : $t('form.create') }}
+        </v-btn>
+        <v-btn color="default" :loading="$store.state.fetching" router :to="{name: '$MODEL_LOWER_NAME$.index'}" type="reset">
+            {{ $t('form.cancel') }}
+        </v-btn>
+    </form>
+</template>
+
+<script type="text/babel">
+    import Vue from 'vue';
+    import Component from 'vue-class-component';
+    import {mapState} from 'vuex';
+
+    @Component({
+        computed: mapState(['messages'])
+    })
+    export default class $MODEL_NAME$ extends Vue {
+        $MODEL$ = {};
+
+        mounted() {
+            /*
+             * Set Page BreadCrumb
+             */
+            this.$store.dispatch('setBreadCrumbs', [
+                '$MODEL_LOWER_NAME$.index',
+                '$MODEL_LOWER_NAME$.' + (this.edit ? 'edit' : 'create')
+            ]);
+
+            if (this.edit) {
+                this.$http.get('admin/$MODEL_LOWER_NAME$/' + this.$route.params.$MODEL$).then(response => this.$MODEL$ = response.data.data);
+            }
+
+        }
+
+        get edit() {
+            return !!this.$route.params.$MODEL$;
+        }
+
+        save() {
+            // if form for create
+            return this.edit ? this.update() : this.create();
+        }
+
+        create() {
+            this.$http.post(`admin/$MODEL_LOWER_NAME$`, this.$MODEL$)
+                .then(response => {
+                    this.$events.$emit('notify', {
+                        type: 'info',
+                        title: 'Success !',
+                        message: this.$t('notifications.data.created_successfully')
+                    });
+                    this.$router.push({name: '$MODEL_LOWER_NAME$.index'});
+                });
+        }
+
+        update() {
+            this.$http.put(`admin/$MODEL_LOWER_NAME$/${this.$route.params.$MODEL$}`, this.$MODEL$)
+                .then(response => {
+                    this.$events.$emit('notify', {
+                        type: 'info',
+                        title: 'Success !',
+                        message: this.$t('notifications.data.updated_successfully')
+                    });
+                    this.$router.push({name: '$MODEL_LOWER_NAME$.index'});
+                });
+        }
+
+
+    }
+</script>

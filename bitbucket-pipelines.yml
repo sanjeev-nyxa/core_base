@@ -1,0 +1,19 @@
+# This is a sample build configuration for Other.
+# Check our guides at https://confluence.atlassian.com/x/5Q4SMw for more examples.
+# Only use spaces to indent your .yml configuration.
+# -----
+# You can specify a custom docker image from Docker Hub as your build environment.
+# image: atlassian/default-image:latest
+
+pipelines:
+  default:
+    - step:
+        script:
+          - curl https://forge.laravel.com/servers/190053/sites/579084/deploy/http?token=jcf2UTBXiQgAG8bE7cOxW9XixiJRCFCome8aklBZ
+          - echo "Everything is awesome!"
+  branches:
+      development:
+        - step:
+            script:
+              - curl https://forge.laravel.com/servers/190053/sites/579084/deploy/http?token=jcf2UTBXiQgAG8bE7cOxW9XixiJRCFCome8aklBZ
+              - echo "Clone all the things!"

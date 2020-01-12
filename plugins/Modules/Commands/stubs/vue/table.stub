@@ -1,0 +1,50 @@
+import Component from 'vue-class-component';
+import DataTable from '@labs-core/admin/components/Tablage/table';
+import Vue from "vue";
+
+@Component
+export default class $MODEL_NAME$  extends Vue {
+
+    render(h) {
+        return h('div', {}, [
+            h(DataTable, {
+                props: {
+                    apiRoute: 'admin/$MODEL_LOWER_NAME$',
+                    route: '$MODEL_LOWER_NAME$',
+                    actions: [
+                        {
+                            text: '$MODEL_LOWER_NAME$.edit',
+                            color: 'primary',
+                            fab: true,
+                            icon: 'edit',
+                            callback: (item) => this.$router.push({name: '$MODEL_LOWER_NAME$.edit', params: {$MODEL$: item.id}})
+                        },
+                        {
+                            text: 'table.delete',
+                            color: 'red',
+                            dark: true,
+                            fab: true,
+                            icon: 'delete',
+                            callback: (item) => this.$events.$emit('table.delete-data', item.id)
+                        }
+                    ],
+                    headers: [
+                        $TABLE_HEADERS$
+                        {
+                            text: this.$t('table.actions'),
+                            value: 'actions',
+                            align: 'right',
+                        }
+
+                    ]
+                }
+            })
+        ])
+    }
+
+    mounted() {
+        this.$store.dispatch('setBreadCrumbs', [
+            '$MODEL_LOWER_NAME$.index'
+        ]);
+    }
+}

@@ -1,0 +1,1 @@
+console.info('Default :: $LOWER_NAME$')

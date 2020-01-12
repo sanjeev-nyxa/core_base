@@ -1,0 +1,22 @@
+<template>
+    <h2>$STUDLY_NAME$ Main Component</h2>
+</template>
+
+<script type="text/babel">
+    import Vue from 'vue';
+    import Component from 'vue-class-component';
+
+    @Component
+    export default class $STUDLY_NAME$ extends Vue {
+
+        mounted() {
+            /*
+             * Set Page BreadCrumb
+             */
+            this.$store.dispatch('setBreadCrumbs', [
+                '$LOWER_NAME$.index',
+            ]);
+        }
+    }
+
+</script>

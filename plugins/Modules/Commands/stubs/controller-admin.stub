@@ -1,0 +1,167 @@
+<?php
+
+namespace $CLASS_NAMESPACE$;
+
+use Labs\Core\Http\Controllers\Controller;
+use Labs\$MODULE$\Entities\$MODEL$;
+use Labs\$MODULE$\Http\Resource\$API$\$MODEL$Resource;
+use Labs\$MODULE$\Http\Requests\$API$\$MODEL$ as $MODEL$Requests;
+
+/**
+ * Class $CLASS$
+ * @property $MODEL$ model
+ * @package Labs\$MODULE$\\Http\Controllers/$API$
+ */
+class $CLASS$ extends Controller
+{
+        /**
+         * $CLASS$ constructor.
+         * @param $MODEL$ $model
+         */
+        public function __construct($MODEL$ $model)
+        {
+            $this->model = $model;
+        }
+
+       /**
+        * @SWG\Get(
+        *     path="/admin/$MODEL_PLURAL_LOWER_NAME$",
+        *     tags={"Admin $MODULE$ $MODEL_PLURAL_NAME$"},
+        *     summary="Get $MODEL$ List",
+        *     @SWG\Response(
+        *          response=200,
+        *          description="ORACLE Fluent Query Response.",
+        *      ),
+        * ),
+        * @param $MODEL$Requests\$MODEL$ShowRequest $request
+        * @return $MODEL$Resource
+        */
+        public function index($MODEL$Requests\$MODEL$ShowRequest $request)
+        {
+            return datatables()->eloquent($this->model->query())->toJson();
+        }
+
+        /**
+        * @SWG\Get(
+        *     path="/admin/$MODEL_PLURAL_LOWER_NAME$/{$MODEL_LOWER_NAME$}",
+        *     tags={"Admin $MODULE$ $MODEL_PLURAL_NAME$"},
+        *     summary="Get $MODEL$",
+        *     @SWG\Parameter(
+        *          name="$MODEL_LOWER_NAME$",
+        *          in="path",
+        *          description="UUID",
+        *          required=true,
+        *          type="string"
+        *      ),
+        *     @SWG\Parameter(
+        *          name="$MODEL_LOWER_NAME$",
+        *          in="body",
+        *          required=true,
+        *          type="string",
+        *          schema={"$ref": "#/definitions/$MODULE$@Admin$MODEL$ShowRequest"},
+        *        ),
+        *     @SWG\Response(
+        *          response=200,
+        *          description="$MODEL$Resource.",
+        *      ),
+        * ),
+        * @param $MODEL$Requests\$MODEL$ShowRequest $request
+        * @param $MODEL$ $$MODEL_LOWER_NAME$
+        * @return $MODEL$Resource
+        */
+        public function show($MODEL$Requests\$MODEL$ShowRequest $request, $MODEL$ $$MODEL_LOWER_NAME$)
+        {
+            return new $MODEL$Resource($$MODEL_LOWER_NAME$);
+        }
+
+        /**
+        * @SWG\Post(
+        *     path="/admin/$MODEL_PLURAL_LOWER_NAME$",
+        *     tags={"Admin $MODULE$ $MODEL_PLURAL_NAME$"},
+        *     summary="Create New $MODEL$",
+        *     @SWG\Parameter(
+        *          name="$MODEL_LOWER_NAME$",
+        *          in="body",
+        *          required=true,
+        *          type="string",
+        *          schema={"$ref": "#/definitions/$MODULE$@Admin$MODEL$StoreRequest"},
+        *        ),
+        *     @SWG\Response(
+        *          response=200,
+        *          description="$MODEL$Resource.",
+        *      ),
+        * ),
+        *
+        * @param  $MODEL$Requests\$MODEL$StoreRequest $request
+        * @return $MODEL$Resource
+        */
+        public function store($MODEL$Requests\$MODEL$StoreRequest $request)
+        {
+            $model = $this->model->create($request->input());
+            return new $MODEL$Resource($model);
+        }
+
+
+        /**
+         * @SWG\Put(
+         *     path="/admin/$MODEL_PLURAL_LOWER_NAME$/{$MODEL_LOWER_NAME$}",
+         *     tags={"Admin $MODULE$ $MODEL_PLURAL_NAME$"},
+         *     summary="Update $MODEL$",
+         *     @SWG\Parameter(
+         *          name="$MODEL_LOWER_NAME$",
+         *          in="path",
+         *          description="UUID",
+         *          required=true,
+         *          type="string"
+         *      ),
+         *     @SWG\Parameter(
+         *          name="$MODEL_LOWER_NAME$",
+         *          in="body",
+         *          required=true,
+         *          type="string",
+         *          schema={"$ref": "#/definitions/$MODULE$@Admin$MODEL$UpdateRequest"},
+         *        ),
+         *     @SWG\Response(
+         *          response=200,
+         *          description="$MODEL$Resource.",
+         *      ),
+         * ),
+         *
+         * @param  $MODEL$  $$MODEL_LOWER_NAME$
+         * @param  $MODEL$Requests\$MODEL$UpdateRequest $request
+         * @return $MODEL$Resource
+         */
+        public function update($MODEL$Requests\$MODEL$UpdateRequest $request, $MODEL$ $$MODEL_LOWER_NAME$)
+        {
+            $$MODEL_LOWER_NAME$->update($request->input());
+            return new $MODEL$Resource($$MODEL_LOWER_NAME$);
+        }
+
+        /**
+        *  @SWG\Delete(
+        *     path="/admin/$MODEL_PLURAL_LOWER_NAME$/{$$MODEL_LOWER_NAME$}",
+        *     tags={"Admin $MODULE$ $MODEL_PLURAL_NAME$"},
+        *     summary="Delete $MODEL$",
+        *     @SWG\Parameter(
+        *          name="$$MODEL_LOWER_NAME$",
+        *          in="path",
+        *          description="UUID",
+        *          required=true,
+        *          type="string"
+        *      ),
+        *     @SWG\Response(
+        *          response=200,
+        *          description="$MODEL$Resource.",
+        *      ),
+        * ),
+        * @param $MODEL$Requests\$MODEL$DestroyRequest $request
+        * @param $MODEL$ $$MODEL_LOWER_NAME$
+        * @return $MODEL$Resource
+        */
+        public function destroy($MODEL$Requests\$MODEL$DestroyRequest $request, $MODEL$ $$MODEL_LOWER_NAME$)
+        {
+            $$MODEL_LOWER_NAME$->delete();
+
+            return new $MODEL$Resource($$MODEL_LOWER_NAME$);
+        }
+}

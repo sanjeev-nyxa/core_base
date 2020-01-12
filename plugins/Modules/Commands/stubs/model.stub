@@ -1,0 +1,18 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Labs\Core\Entities\BaseModel;
+
+/**
+ * Class $CLASS$
+ * @package $NAMESPACE$
+ */
+class $CLASS$ extends BaseModel
+{
+
+    /**
+     * @var array
+     */
+    protected $fillable = $FILLABLE$;
+}

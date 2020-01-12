@@ -1,0 +1,19 @@
+<?php
+
+// Admin API Routes
+Route::group(['middleware' => 'auth', 'prefix' => 'admin/$PREFIX_PLURAL$', 'namespace' => '$MODULE_NAMESPACE$\$MODULE_NAME$\Http\Controllers\Admin'], function()
+{
+    Route::get('/', '$STUDLY_NAME$Controller@index');
+    Route::get('/{$PREFIX$}', '$STUDLY_NAME$Controller@show');
+    Route::post('/', '$STUDLY_NAME$Controller@store');
+    Route::put('/{$PREFIX$}', '$STUDLY_NAME$Controller@update');
+    Route::delete('/{$PREFIX$}', '$STUDLY_NAME$Controller@destroy');
+});
+
+
+// Front API Routes
+Route::group(['middleware' => 'api', 'prefix' => '$PREFIX_PLURAL$', 'namespace' => '$MODULE_NAMESPACE$\$MODULE_NAME$\Http\Controllers\API'], function()
+{
+    Route::get('/', '$STUDLY_NAME$Controller@index');
+    Route::get('/{$PREFIX$}', '$STUDLY_NAME$Controller@show');
+});

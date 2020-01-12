@@ -1,0 +1,3 @@
+// import "./pages";
+
+import './components';

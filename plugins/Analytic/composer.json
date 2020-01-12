@@ -1,0 +1,25 @@
+{
+    "name": "webnyxa/analytic",
+    "description": "",
+    "authors": [
+        {
+            "name": "Dev Team",
+            "email": "dev@webnyxa.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Labs\\Analytic\\Providers\\AnalyticServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Labs\\Analytic\\": ""
+        }
+    }
+}

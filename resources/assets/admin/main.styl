@@ -1,0 +1,54 @@
+/** Stylus Styles */
+
+// Available variables https://github.com/vuetifyjs/vuetify/blob/master/src/stylus/settings/_variables.styl
+@import '~vuetify/src/stylus/main'
+@import "~toastr/build/toastr.css";
+/*
+ * Router Animations
+ */
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity .5s
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0
+}
+
+[v-cloak] {
+  display: none;
+}
+
+.text-capitalize
+  text-transform: capitalize
+
+.btn-group .btn
+  opacity: 1 !important
+
+.tablage--btn
+  bottom: 75px !important
+
+.tablage--speed-dial
+  bottom: 103px !important
+  right: 8px !important
+
+.text-center {
+  text-align: center;
+}
+
+.img-responsive {
+  max-width: 100%;
+}
+.img-responsive.logo:hover {
+  cursor: pointer
+}
+
+
+.l-sidebar {
+  padding-top: 20px;
+}
+.v-note-wrapper.markdown-body {
+  z-index 1;
+}

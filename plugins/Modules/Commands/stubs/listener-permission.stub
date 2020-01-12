@@ -1,0 +1,21 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Labs\Core\Events\Seeder\GetAppPermissions;
+
+class $CLASS$
+{
+    /**
+     * Handle the event.
+     *
+     * @param GetAppPermissions $event
+     * @return void
+     */
+    public function handle(GetAppPermissions $event)
+    {
+         $event->collection
+            // PERMISSIONS_HANDLER
+         ;
+    }
+}

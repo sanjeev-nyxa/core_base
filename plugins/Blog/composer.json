@@ -1,0 +1,25 @@
+{
+    "name": "webnyxa/blog",
+    "description": "",
+    "authors": [
+        {
+            "name": "Dev Team",
+            "email": "dev@webnyxa.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Labs\\Blog\\Providers\\BlogServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Labs\\Blog\\": ""
+        }
+    }
+}

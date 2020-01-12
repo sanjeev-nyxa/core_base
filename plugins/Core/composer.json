@@ -1,0 +1,25 @@
+{
+    "name": "webnyxa/core",
+    "description": "",
+    "authors": [
+        {
+            "name": "Dev Team",
+            "email": "dev@webnyxa.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Labs\\Core\\Providers\\CoreServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Labs\\Core\\": ""
+        }
+    }
+}

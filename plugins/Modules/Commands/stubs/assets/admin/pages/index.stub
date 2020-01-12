@@ -1,0 +1,23 @@
+import $STUDLY_NAME$ from './Main.vue'
+// ROUTE__IMPORTS
+const Routes = [
+    {
+        name: '$LOWER_NAME$.index',
+        path: '/$LOWER_NAME$',
+        component: $STUDLY_NAME$,
+        meta: {
+            order: 3,
+            requiresAuth: true,
+            icon: 'fiber_new',
+            menu: true,
+            permission: 'view_$LOWER_NAME$'
+        },
+        children: [
+            // ROUTE__CHILDREN
+        ]
+    }
+];
+
+Routes.map(route => {
+    Zexus.routes.push(route)
+});

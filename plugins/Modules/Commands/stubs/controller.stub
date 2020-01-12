@@ -1,0 +1,15 @@
+<?php
+
+namespace $CLASS_NAMESPACE$;
+
+use Labs\Core\Http\Controllers\Controller;
+
+
+/**
+ * Class $CLASS$
+ * @package Zix\PluginName\Http\Controllers
+ */
+class $CLASS$ extends Controller
+{
+
+}

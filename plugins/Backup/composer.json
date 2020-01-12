@@ -1,0 +1,25 @@
+{
+    "name": "webnyxa/backup",
+    "description": "",
+    "authors": [
+        {
+            "name": "Dev Team",
+            "email": "dev@webnyxa.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Labs\\Backup\\Providers\\BackupServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Labs\\Backup\\": ""
+        }
+    }
+}
